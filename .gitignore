@@ -60,3 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# User Defined
+hmmtagger/input
+hmmtagger/output
+hmmtagger/hmmmodel.txt
+hmmtagger/hmmoutput.txt
