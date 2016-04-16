@@ -13,7 +13,7 @@ if not os.path.exists(path):
     exit()
 
 def separate(token):
-    patt = re.compile(r'(.*)\/([A-Z0-9]{2})')
+    patt = re.compile(r'(.*)\/(.*)')
     res = patt.match(token)
     #TODO: if res: for safety
     word = res.group(1)
@@ -42,6 +42,7 @@ def insert(prev, curr):
         mapping[curr['tag']]['tags'] = {prev['tag']: 1}
         mapping[curr['tag']]['words'] = {curr['word']: 1}
         mapping[curr['tag']]['emmis_denom'] = 1
+        mapping[curr['tag']]['trans_denom'] = 0        
     else:
         if prev['tag'] in mapping[curr['tag']]['tags']:
             mapping[curr['tag']]['tags'][prev['tag']] += 1

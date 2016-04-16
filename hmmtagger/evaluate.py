@@ -1,7 +1,8 @@
 import re
+import codecs
 
 def separate(token):
-    patt = re.compile(r'(.*)\/([A-Z0-9]{2})')
+    patt = re.compile(r'(.*)\/(.*)')
     res = patt.match(token)
     #TODO: if res: for safety
     word = res.group(1)
@@ -10,7 +11,7 @@ def separate(token):
 
 total_tags = 0
 corr_tags = 0
-with open('hmmoutput.txt', 'r') as rfile, open('hw6-dev-train/dev/catalan_corpus_dev_tagged.txt', 'r') as rubericfile:
+with codecs.open('hmmoutput.txt', 'r', 'utf-8') as rfile, codecs.open('/home/joel/devwork/wa/hmmtagger/input/fixed_inp_ruberic.txt', 'r', 'utf-8') as rubericfile:
     for inp_line in rfile.readlines():
         ruberic_line = rubericfile.readline()
 
