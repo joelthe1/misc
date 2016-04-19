@@ -1,6 +1,6 @@
 ## Hidden Markov Model based Automatic Morphological Tagger
 ### What does this do?
-Tries to automatically learn the morphological tags from a tagged training data set and attempts to assign tags to a given set of sentences (test data set).
+Tries to automatically learn the morphological tags from a tagged training data set and attempts to assign tags to a given set of untagged sentences (test data).
 
 
 ### Training Data Format
