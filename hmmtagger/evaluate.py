@@ -11,7 +11,7 @@ def separate(token):
 
 total_tags = 0
 corr_tags = 0
-with codecs.open('hmmoutput.txt', 'r', 'utf-8') as rfile, codecs.open('/home/joel/devwork/wa/hmmtagger/input/fixed_inp_ruberic.txt', 'r', 'utf-8') as rubericfile:
+with codecs.open('hmmoutput.txt', 'r', 'utf-8') as rfile, codecs.open('input/fixed_inp_ruberic.txt', 'r', 'utf-8') as rubericfile:
     for inp_line in rfile.readlines():
         ruberic_line = rubericfile.readline()
 
