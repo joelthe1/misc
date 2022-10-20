@@ -70,3 +70,4 @@ hmmtagger/input
 hmmtagger/output
 hmmtagger/hmmmodel.txt
 hmmtagger/hmmoutput*
+.venv/
