@@ -28,16 +28,16 @@ pprint(len(markers))
 
 with open("nodes.csv", "w") as nodes_file, open("relations.csv", "w") as relations_file:
     # Write headers
-    nodes_file.write("markerId:ID,styleType,rank:int,:LABEL\n")
-    relations_file.write(":START_ID,:END_ID,:TYPE\n")
+    nodes_file.write("Id,styleType,rank\n")
+    relations_file.write("startId,endId\n")
     for marker in markers:
         rank = ""
         if "Rank" in marker:
             rank = marker["Rank"]
-        nodes_file.write(f"{marker['Marker']},{marker['StyleType']},{rank},Marker\n")
+        nodes_file.write(f"{marker['Marker']},{marker['StyleType']},{rank}\n")
         if "OccursUnder" in marker:
             for m in marker["OccursUnder"].split():
-                relations_file.write(f"{m},{marker['Marker']},OCCURS_UNDER\n")
+                relations_file.write(f"{m},{marker['Marker']}\n")
 
 # with open("output.mermaid", "w") as mermaid_file:
 #     for marker in markers:
