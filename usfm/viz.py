@@ -25,7 +25,7 @@ with open("usfm.sty") as sty_file:
                 key, value = splits
                 block[key[1:]] = value
 
-pprint(len(markers))
+# pprint(set([v["StyleType"] for k, v in markers.items()]))
 
 with open("nodes.csv", "w") as nodes_file, open("relations.csv", "w") as relations_file:
     # Write headers
@@ -36,18 +36,10 @@ with open("nodes.csv", "w") as nodes_file, open("relations.csv", "w") as relatio
         if "Rank" in props:
             rank = props["Rank"]
         nodes_file.write(
-            f"{props['index_number']},{props['Marker']},{props['StyleType']},{rank}\n"
+            f"{props['index_number']},{props['Marker']},{props['StyleType'].lower()},{rank}\n"
         )
         if "OccursUnder" in props:
             for m in props["OccursUnder"].split():
                 relations_file.write(
                     f"{markers[m]['index_number']},{props['index_number']}\n"
                 )
-
-# with open("output.mermaid", "w") as mermaid_file:
-#     for marker in markers:
-#         if "OccursUnder" not in marker:
-#             mermaid_file.write(f"{marker['Marker']}\n")
-#         else:
-#             for m in marker["OccursUnder"].split():
-#                 mermaid_file.write(f"{m} --> {marker['Marker']}\n")
